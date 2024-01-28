@@ -1,6 +1,0 @@
-Hecto: Build your own text editor in Rust
-https://www.flenker.blog/hecto/
-
-https://github.com/mbrubeck/robinson
-https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
-
