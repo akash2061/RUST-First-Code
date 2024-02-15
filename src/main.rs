@@ -174,75 +174,104 @@ fn main() {
     println!("Matrix:");
     let mut matrix: Vec<Vec<i32>> = Vec::new();
     let mut k = 1;
-    for _ in 0..3{
-        let mut row:Vec<i32>=Vec::new();
-        for _ in 0..3{
+    for _ in 0..3 {
+        let mut row: Vec<i32> = Vec::new();
+        for _ in 0..3 {
             row.push(k);
-            k+=1;
+            k += 1;
         }
         matrix.push(row);
     }
     matrix.push(v);
     matrix.push(v1);
-    println!("{:?}",matrix);
-    for i in 0..5{
-        for j in 0..3{
-            print!("{}  ",matrix[i][j]);
+    println!("{:?}", matrix);
+    for i in 0..5 {
+        for j in 0..3 {
+            print!("{}  ", matrix[i][j]);
         }
         println!();
     }
-    println!("{}",matrix[1][2]);
+    println!("{}", matrix[1][2]);
     println!();
 
     // ! Char x String.
     let name = "Morningstar_2061";
-    println!("{}",name);
-    println!("{:?}",name);
-    
-    for i in name.chars(){
-        print!("{}  ",i);
+    println!("{}", name);
+    println!("{:?}", name);
+
+    for i in name.chars() {
+        print!("{}  ", i);
     }
     println!();
 
-    let mut newname:String = name.to_string();
-    println!("{:?}",newname);
+    let mut newname: String = name.to_string();
+    println!("{:?}", newname);
 
     newname.clear();
     newname.push_str("Hello ");
     newname.push_str(name);
-    println!("{:?}",newname);
+    println!("{:?}", newname);
 
     // ! ASCII.
-    let ascii:Vec<u8> = vec![65,66,67,68,69,70];
-    println!("{}",String::from_utf8_lossy(&ascii[..]));
+    let ascii: Vec<u8> = vec![65, 66, 67, 68, 69, 70];
+    println!("{}", String::from_utf8_lossy(&ascii[..]));
 
     b = 5;
     let c = 10;
 
-    println!("B = {}",b);
-    println!("C = {}",c);
-    
+    println!("B = {}", b);
+    println!("C = {}", c);
+
     let c = &b;
-    println!("C = {}",*c);
-    
-    b+=*c;
-    println!("B = {}",b);
+    println!("C = {}", *c);
+
+    b += *c;
+    println!("B = {}", b);
 
     let s = String::from(name);
     let mut s2 = s.clone();
     let s3 = &s;
 
-    println!("S2 = {:?}",s2);
+    println!("S2 = {:?}", s2);
     s2 = funname(s2);
 
-    println!("S = {:?}",s);
+    println!("S = {:?}", s);
     // drop(s);
     // s.clear();
-    println!("New S2 = {:?}",s2);
-    println!("S3 = {:?}",s3);
+    println!("New S2 = {:?}", s2);
+    println!("S3 = {:?}", s3);
+
+    // ! HashMap
+    use std::collections::HashMap;
+    let mut reviews: HashMap<String, String> = HashMap::new();
+
+    reviews.insert(
+        String::from("Ancient Roman History"),
+        String::from("Very accurate."),
+    );
+    reviews.insert(
+        String::from("Cooking with Rhubarb"),
+        String::from("Sweet recipes."),
+    );
+    reviews.insert(
+        String::from("Programming in Rust"),
+        String::from("Great examples."),
+    );
+
+    // Look for a specific review
+    let book: &str = "Programming in Rust";
+    println!("\nReview for \'{}\': {:?}", book, reviews.get(book));
+
+    // Remove book review
+    let obsolete: &str = "Ancient Roman History";
+    println!("\n'{}\' removed.", obsolete);
+    reviews.remove(obsolete);
+
+    // Confirm book review removed
+    println!("\nReview for \'{}\': {:?}", obsolete, reviews.get(obsolete));
 }
 
-fn funname(mut name:String)->String{
+fn funname(mut name: String) -> String {
     name.push_str(" Funtion.");
     return name;
 }
