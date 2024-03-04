@@ -1,5 +1,5 @@
 //use std::io;
-fn main() {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Hello, world!");
     println!("{} bytes.", std::mem::size_of::<usize>());
 
@@ -269,6 +269,11 @@ fn main() {
 
     // Confirm book review removed
     println!("\nReview for \'{}\': {:?}", obsolete, reviews.get(obsolete));
+
+    let resp = reqwest::blocking::get("https://github.com/akash2061")?;
+    println!("\n{:#?}", resp.url());
+    println!("Status => {:#?}", resp.status());
+    Ok(())
 }
 
 fn funname(mut name: String) -> String {
