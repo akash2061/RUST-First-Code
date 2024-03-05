@@ -1,4 +1,4 @@
-//use std::io;
+use std::io;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Hello, world!");
     println!("{} bytes.", std::mem::size_of::<usize>());
@@ -134,14 +134,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("{:?} => {:#?}", arr, v);
     // ! {:?} => Use for lenior array {:#?} => Use for vertical array.
 
-    /* //! Input...
+    // ! Input...
     let mut input = String::new();
     println!("Enter an integer:");
     io::stdin()
         .read_line(&mut input)
         .expect("Failed to read line");
-    println!("{}",input);
-     */
+    println!("{}", input);
 
     // ! Vector
     let mut v: Vec<i32> = vec![10, 20, 30, 40, 50];
