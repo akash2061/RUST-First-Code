@@ -1,3 +1,3 @@
 # Hello Everyone...!
 
-### I am learning Rust Language. 🦀 <br> This is a basic Repo of My Learning Path...!
+### I am learning Rust Language. 🦀 <br> This Repository Chronicles my Journey through the Fundamentals of Rust, capturing the essence of My Learning Path....!
