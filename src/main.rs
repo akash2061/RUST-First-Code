@@ -294,6 +294,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!();
     let decoded_string: String = String::from_utf16_lossy(&utf16_encoded);
     println!("Decoded String: {}", decoded_string);
+    
 
     let resp = reqwest::blocking::get("https://github.com/akash2061")?;
     println!("\n{:#?}", resp.url());
