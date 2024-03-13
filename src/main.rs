@@ -269,6 +269,32 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Confirm book review removed
     println!("\nReview for \'{}\': {:?}", obsolete, reviews.get(obsolete));
 
+    // ! Type-Conversion/Casting.
+    println!("\nType Casting:");
+    for i in 0..=u8::MAX {
+        println!("{} = {}", i, i as char);
+    }
+
+    // ! Encryption-Decryption.
+    println!("Encode: ");
+    let newname = "akash2061";
+    for utf16_unit in newname.encode_utf16() {
+        print!("{:x} ", utf16_unit);
+    }
+    println!();
+
+    let utf16_encoded: Vec<u16> = newname.encode_utf16().collect();
+
+    println!("UTF-16 Encoded:");
+    for utf16_unit in &utf16_encoded {
+        print!("{:x} ", utf16_unit);
+    }
+    let utf16_encoded: Vec<u16> = utf16_encoded.iter().map(|&x| x >> 1).collect();
+    let utf16_encoded: Vec<u16> = utf16_encoded.iter().map(|&x| x << 1).collect();
+    println!();
+    let decoded_string: String = String::from_utf16_lossy(&utf16_encoded);
+    println!("Decoded String: {}", decoded_string);
+
     let resp = reqwest::blocking::get("https://github.com/akash2061")?;
     println!("\n{:#?}", resp.url());
     println!("Status => {:#?}", resp.status());
