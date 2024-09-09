@@ -1,4 +1,7 @@
+mod recap;
+
 use std::io;
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Hello, world!");
     println!("{} bytes.", std::mem::size_of::<usize>());
@@ -298,6 +301,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let resp = reqwest::blocking::get("https://github.com/akash2061")?;
     println!("\n{:#?}", resp.url());
     println!("Status => {:#?}", resp.status());
+
+    // ! RUST Recap.
+    recap::recap();
+
     Ok(())
 }
 
