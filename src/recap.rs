@@ -1,3 +1,4 @@
+use colored::*;
 use std::io;
 
 pub fn recap() {
@@ -34,7 +35,7 @@ fn i32_input() -> i32 {
         match trim.parse::<i32>() {
             Ok(num) => return num,
             Err(_) => {
-                println!("Please enter a valid number.");
+                println!("{}", "Please enter a valid number.".red());
             }
         }
     }
